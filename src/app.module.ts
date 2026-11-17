@@ -9,6 +9,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { MesaModule } from './mesa/mesa.module';
+import { CuentaMesaModule } from './cuenta-mesa/cuenta-mesa.module';
+import { DetalleConsumoModule } from './detalle-consumo/detalle-consumo.module';
 
 @Module({
   imports: [
@@ -28,9 +31,16 @@ import { AppService } from './app.service';
 
       inject: [ConfigService],
     }),
+
+    MesaModule,
+
+    CuentaMesaModule,
+
+    DetalleConsumoModule,
   ],
 
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
+
